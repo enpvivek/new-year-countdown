@@ -6,11 +6,6 @@ const showHours = document.getElementById("showhours");
 const showMins = document.getElementById("showmins");
 const showSec = document.getElementById("showsecs");
 
-// Getting Current DateTime and next coming year
-const today = new Date();
-const currentYear = today.getFullYear();
-const newYearDate = new Date(`${currentYear + 1}-01-01`);
-
 // Function to return time as double digit
 function setProperTime(time) {
   return time > 9 ? time : `0${time}`;
@@ -18,8 +13,12 @@ function setProperTime(time) {
 
 // Countdown clock
 function getSec() {
+  // Getting Current DateTime and next coming year
+  const today = new Date();
+  const currentYear = today.getFullYear();
+  const newYearDate = new Date(`${currentYear + 1}-01-01`);
+
   // Calculating Days, Hours, Minutes and Seconds left
-  let today = new Date();
   const daysLeft = Math.floor((newYearDate - today) / 1000 / 3600 / 24);
   const hoursLeft = Math.floor(24 - today.getHours());
   const minsLeft = Math.floor(60 - today.getMinutes());
